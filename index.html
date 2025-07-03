@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Secure Message</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: Arial; text-align: center; padding-top: 50px; }
+    input { padding: 10px; font-size: 18px; width: 100px; text-align: center; }
+    button { padding: 10px 20px; font-size: 18px; }
+    #message { display: none; margin-top: 20px; font-size: 20px; color: green; }
+    #error { color: red; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h2>Enter Passcode</h2>
+  <input type="password" id="code" maxlength="4" placeholder="0303" />
+  <br><br>
+  <button onclick="checkCode()">Submit</button>
+  <div id="error"></div>
+  <div id="message">🎉 Welcome! This is your secret message.</div>
+
+  <script>
+    function checkCode() {
+      const correctCode = "1234"; // You can change this
+      const input = document.getElementById("code").value;
+      if (input === correctCode) {
+        document.getElementById("message").style.display = "block";
+        document.getElementById("error").innerText = "";
+      } else {
+        document.getElementById("message").style.display = "none";
+        document.getElementById("error").innerText = "Incorrect passcode.";
+      }
+    }
+  </script>
+</body>
+</html>
