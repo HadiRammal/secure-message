@@ -4,24 +4,62 @@
   <title>Secure Message</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body { font-family: Arial; text-align: center; padding-top: 50px; }
-    input { padding: 10px; font-size: 18px; width: 100px; text-align: center; }
-    button { padding: 10px 20px; font-size: 18px; }
-    #message { display: none; margin-top: 20px; font-size: 20px; color: green; }
-    #error { color: red; margin-top: 10px; }
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    input {
+      padding: 10px;
+      font-size: 18px;
+      width: 100px;
+      text-align: center;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 5px;
+    }
+    #message {
+      display: none;
+      margin-top: 30px;
+      font-size: 20px;
+      color: darkgreen;
+      line-height: 1.5;
+    }
+    #error {
+      color: red;
+      margin-top: 10px;
+    }
+    #hint {
+      display: none;
+      margin-top: 10px;
+      font-size: 14px;
+      color: gray;
+    }
   </style>
 </head>
 <body>
-  <h2>Enter Passcode you know this code janjan very well it was your phone passcode</h2>
+  <h2>Enter Passcode</h2>
   <input type="password" id="code" maxlength="4" placeholder="••••" />
-  <br><br>
+  <br>
   <button onclick="checkCode()">Submit</button>
+  <button onclick="showHint()">Hint</button>
+  
   <div id="error"></div>
-  <div id="message">🎉 Welcome! This is your secret message, These 204 flowers represent each day we've been apart. Every single one is a reminder that not a day has passed without me loving you.</div>
+  <div id="hint">💡 You know this date very well — it was your phone passcode.</div>
+
+  <div id="message">
+    💐 These 204 flowers represent each day we've been apart.<br>
+    Every single one is a reminder that not a day has passed without me loving you.<br>
+    <strong>Shta2telik Janjan</strong> ❤️
+  </div>
 
   <script>
     function checkCode() {
-      const correctCode = "0303"; // You can change this
+      const correctCode = "0303";
       const input = document.getElementById("code").value;
       if (input === correctCode) {
         document.getElementById("message").style.display = "block";
@@ -30,6 +68,10 @@
         document.getElementById("message").style.display = "none";
         document.getElementById("error").innerText = "Incorrect passcode.";
       }
+    }
+
+    function showHint() {
+      document.getElementById("hint").style.display = "block";
     }
   </script>
 </body>
